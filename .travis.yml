@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build supate/docker-react -f Dockerfile.dev
+  
+script:
+  - docker run supate/docker-react npm run test -- -- coverage  
